@@ -10,7 +10,7 @@ public class DBConnection{
         } catch (ClassNotFoundException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        Connection connection = DriverManager.getConnection("jdbc:sqlite:data.db");
+        Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/java/database/data.db");
 
         connection.setAutoCommit(false);
 

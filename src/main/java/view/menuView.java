@@ -3,10 +3,11 @@ package view;
 import services.InputGetter;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class menuView extends View{
-    private Map<String, String> mainMenu = new HashMap<>();
+    private Map<String, String> mainMenu = new HashMap<String, String>();
 
     public void handleMainMenu() {
         clearScreen();
@@ -30,7 +31,15 @@ public class menuView extends View{
         System.out.println("0. Back to main menu.");
     }
 
-    public String askForMenuOption() {
-        return InputGetter.getStringInput("What would you like to do?");
+    public int askForMenuOption() {
+        return InputGetter.getIntegerInput("What would you like to do?\n");
+    }
+
+    public void displayBooksInCollection(List<String> books) {
+        System.out.println("Books collection: ");
+
+        for (String title : books) {
+            System.out.println("Title: " + title);
+        }
     }
 }
