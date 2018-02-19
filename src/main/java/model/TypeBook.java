@@ -9,4 +9,8 @@ public class TypeBook {
         this.typeID = typeID;
         this.type = type;
     }
+
+    public TypeBook(String type) {
+        this.type = type;
+    }
 }

@@ -1,14 +1,18 @@
 package controller;
 
+import dao.AuthorDAO;
 import dao.BookDAO;
-import dao.DBBookDAO;
+import dao.DbAuthorDAO;
+import dao.DbBookDAO;
+import model.Author;
+import model.Book;
 import view.menuView;
 
 import java.util.List;
 
 public class mainController {
     private menuView view = new menuView();
-    private BookDAO booksDAO = new DBBookDAO();
+    private BookDAO booksDAO = new DbBookDAO();
 
     public void runMainMenu() {
         boolean isExit = false;
@@ -24,6 +28,7 @@ public class mainController {
                     break;
 
                 case 2 :
+                    addNewBook();
                     break;
 
                 case 3 :
@@ -43,5 +48,39 @@ public class mainController {
                     break;
             }
         }
+    }
+
+    private void addNewBook() {
+        Book book = createBook();
+        booksDAO.add(book);
+    }
+
+    private Book createBook() {
+        return new Book(
+                pickAuthor().getId(),
+                view.askForTitle(),
+                view.askForPublisher(),
+                view.askForPublicationYear(),
+                view.askForPrice(),
+                view.askForType()
+        );
+    }
+
+    private int chooseAuthorID(List<Author> authors) {
+        view.displayAuthors(authors);
+        return view.askForAuthor();
+    }
+
+    private Author pickAuthor() {
+        AuthorDAO authorDAO = new DbAuthorDAO();
+        List<Author> authors = authorDAO.getAuthors();
+
+        view.displayAuthors(authors);
+        int author_id = view.askForAuthor();
+
+        for (Author person : authors) {
+            if (person.getId() == author_id) return person;
+        }
+        return null;
     }
 }

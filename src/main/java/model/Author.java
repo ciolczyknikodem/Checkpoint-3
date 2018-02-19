@@ -24,4 +24,15 @@ public class Author {
         this.city = city;
         this.country = country;
     }
+
+    public String toString() {
+        return "\nID: " + author_id + "\n" +
+                "Name: " + name + "\n" +
+                "Surname: " + surname + "\n" +
+                "Birth year: " + birthYear + "\n" +
+                "City: " + city + "\n" +
+                "Country: " + country + "\n";
+    }
+
+    public int getId() { return author_id; }
 }

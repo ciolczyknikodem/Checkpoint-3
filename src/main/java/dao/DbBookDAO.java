@@ -2,13 +2,14 @@ package dao;
 
 import dao.entry.BookEntry;
 import dao.statements.sqlQueries;
+import model.Book;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+
 import java.util.List;
 
-public class DBBookDAO implements BookDAO {
+public class DbBookDAO implements BookDAO {
     DBProcess process = new DBProcess();
 
     public List<String> getAllBookTitles() {
@@ -23,9 +24,15 @@ public class DBBookDAO implements BookDAO {
                 bookTitles.add(title);
             }
             result.close();
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        catch (SQLException e) { System.err.println(e.getClass().getName() + ": " + e.getMessage()); }
 
         return bookTitles;
+    }
+
+    public void add(Book book) {
+        String statement = sqlQueries.add(book);
+        process.executeUpdateDB(statement);
     }
 }
