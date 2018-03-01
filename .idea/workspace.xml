@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b03271-e9ac-4102-99aa-59eb75a2555e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/23f46a3b-d165-494a-93fd-e4f93f21ddf9.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88cbb0cb-065f-4962-9565-5e98991b01d9.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Checkpoint-3.iml" afterPath="$PROJECT_DIR$/Checkpoint-3.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/mainController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/mainController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBConnection.java" afterPath="$PROJECT_DIR$/src/main/java/dao/DBConnection.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBProcess.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DbAuthorDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/DbAuthorDAO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/BookDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/BookDAO.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entry/BookEntry.java" afterPath="$PROJECT_DIR$/src/main/java/dao/entry/BookEntry.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/statements/sqlQueries.java" afterPath="$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java" afterPath="$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/data.db" afterPath="$PROJECT_DIR$/src/main/java/database/data.db" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Book.java" afterPath="$PROJECT_DIR$/src/main/java/model/Book.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TypeBook.java" afterPath="$PROJECT_DIR$/src/main/java/model/BookType.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/InputGetter.java" afterPath="$PROJECT_DIR$/src/main/java/services/InputGetter.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/menuView.java" afterPath="$PROJECT_DIR$/src/main/java/view/menuView.java" />
     </list>
@@ -72,18 +59,18 @@
       <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="102" column="1" lean-forward="true" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
+            <state relative-caret-position="645">
+              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ISBNgenerator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/ISBNgenerator.java">
+      <file leaf-file-name="SQLQueries.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,8 +79,18 @@
       <file leaf-file-name="menuView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/menuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="697">
+              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputGetter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/InputGetter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -112,8 +109,18 @@
       <file leaf-file-name="DbBookDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="645">
+              <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/BookDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -171,26 +178,26 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/Author.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/AuthorDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/BookDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/entry/AuthorEntry.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/88cbb0cb-065f-4962-9565-5e98991b01d9/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DBProcess.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/entry/BookEntry.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/TypeBook.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/InputGetter.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/statements/sqlQueries.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/entry/PublisherEntry.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DbPublisherDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/PublisherDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/menuView.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Publisher.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DbAuthorDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Book.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/ISBNgenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/mainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/menuView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/InputGetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/BookDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/mainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java" />
       </list>
     </option>
   </component>
@@ -272,6 +279,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Checkpoint-3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Checkpoint-3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="statements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Checkpoint-3" type="b2602c69:ProjectViewProjectNode" />
@@ -493,12 +509,12 @@
       <workItem from="1519028471390" duration="13579000" />
       <workItem from="1519481689579" duration="128000" />
       <workItem from="1519481888542" duration="23000" />
-      <workItem from="1519815706492" duration="11475000" />
+      <workItem from="1519815706492" duration="14985000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28828000" />
+    <option name="totallyTimeSpent" value="32338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -738,17 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/InputGetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding>
-            <element signature="e#873#874#0" expanded="false" />
-            <element signature="e#914#915#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/fc910030/edd684b5-4dec-4356-a4d7-add8d10add38/main.TypeBook">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -780,14 +785,6 @@
             <element signature="e#368#369#0" expanded="true" />
             <element signature="e#401#402#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,25 +854,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/BookDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/ISBNgenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/fc910030/edd684b5-4dec-4356-a4d7-add8d10add38/main.Books">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -888,26 +870,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/InputGetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/BookDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/DbBookDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/fc910030/edd684b5-4dec-4356-a4d7-add8d10add38/main.Books">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/menuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/mainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="102" column="1" lean-forward="true" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
+        <state relative-caret-position="645">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/ISBNgenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/statements/SQLQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>

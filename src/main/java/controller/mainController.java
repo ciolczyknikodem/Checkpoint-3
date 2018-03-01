@@ -7,6 +7,7 @@ import model.Publisher;
 import services.ISBNgenerator;
 import view.menuView;
 
+import java.sql.SQLDataException;
 import java.util.List;
 
 public class mainController {
@@ -31,9 +32,11 @@ public class mainController {
                     break;
 
                 case 3 :
+                    deleteBook();
                     break;
 
                 case 4 :
+                    searchForBookByPharse();
                     break;
 
                 case 5 :
@@ -99,5 +102,20 @@ public class mainController {
     private Long generateISBForNewBook() {
         ISBNgenerator generator = new ISBNgenerator();
         return generator.numberGenerator();
+    }
+
+    private void deleteBook() {
+        try {
+            List<Book> books = booksDAO.getAllBooks();
+            view.displayBooksForDelete(books);
+
+            Long ISBN = view.askForISBN();
+            booksDAO.deleteBookBy(ISBN);
+
+        } catch (SQLDataException e) { System.out.println("Records loading has been failed!"); }
+    }
+
+    private void searchForBookByPharse() {
+
     }
 }

@@ -20,14 +20,20 @@ public class SQLQueries {
                 "VALUES ( ?, ?, ?, ?, ?, ?, ?) ;";
     }
 
-    public static String showBooks() {
-        return "SELECT " + BookEntry.title.name() + " FROM " + BookEntry.Books.name() + "; ";
+    public static String getBookTitles() {
+        return "SELECT " + BookEntry.title.name() +
+                " FROM " + BookEntry.Books.name() +
+                " ORDER BY " + BookEntry.title.name() + " ASC; ";
     }
 
-    public static String getAuthors() {
-        return "SELECT * " + " FROM " + AuthorEntry.Authors.name() + "; ";
+    public static String deleteBook() {
+        return "DELETE FROM " + BookEntry.Books.name() +
+                " WHERE " + BookEntry.ISBN.name() + " = ?";
     }
-    public static String getPublishers() { return "SELECT * " + " FROM " + PublisherEntry.Publishers.name() + "; "; }
+
+    public static String getAuthors() { return "SELECT *  FROM " + AuthorEntry.Authors.name() + "; "; }
+    public static String getPublishers() { return "SELECT *  FROM " + PublisherEntry.Publishers.name() + "; "; }
+    public static String getBooks() { return "SELECT * FROM " + BookEntry.Books.name() + "; "; }
 }
 
 

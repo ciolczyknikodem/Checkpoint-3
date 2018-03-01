@@ -1,6 +1,7 @@
 package view;
 
 import model.Author;
+import model.Book;
 import model.Publisher;
 import services.InputGetter;
 import java.util.HashMap;
@@ -40,15 +41,21 @@ public class menuView extends View{
 
     public void displayBooksInCollection(List<String> books) {
         System.out.println("Books titles collection: ");
+        for (String title : books) { System.out.println(title); }
+    }
 
-        for (String title : books) {
-            System.out.println(title);
+    public void displayBooksForDelete(List<Book> books) {
+        System.out.println("Which book do you want to delete?");
+
+        for (Book element : books) {
+            System.out.println("ISBN number: " + element.getISBN() + ", title: " + element.getTitle());
         }
     }
 
     public String askForAuthorName() { return inputGetter.getStringInput("Enter author name: "); }
     public String askForTitle() { return inputGetter.getStringInput("Enter title: "); }
-    public String askForPublisher() { return inputGetter.getStringInput("Enter publisher: ");}
+    public String askForPublisher() { return inputGetter.getStringInput("Enter publisher: "); }
+    public Long askForISBN() { return inputGetter.getLongInput("Enter ISBN number: "); }
     public int askForPublicationYear() { return inputGetter.getIntegerInput("Enter year of publication: "); }
     public int askForPrice() { return inputGetter.getIntegerInput("Enter price: "); }
     public int askForType() { return inputGetter.getIntegerInput("What type is this book?\n1 = E-book, 2 = PrintBook"); }
