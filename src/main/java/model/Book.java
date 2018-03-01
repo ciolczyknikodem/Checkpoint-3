@@ -1,38 +1,39 @@
 package model;
 
-public class Book extends TypeBook {
+public class Book {
 
-    private int ISBN;
+    private Long ISBN;
     private int author;
     private String title;
     private String publisher;
     private int publicationYear;
     private int price;
+    private int type;
 
-    public Book(String type, int typeID, int ISBN, int author, String title, String publisher, int publicationYear, int price) {
-        super(type, typeID);
+    public Book(Long ISBN, int author, String title, String publisher, int publicationYear, int price, int typeID) {
         this.ISBN = ISBN;
         this.author = author;
         this.title = title;
         this.publisher = publisher;
         this.publicationYear = publicationYear;
         this.price = price;
+        this.type = typeID;
     }
 
-    public Book(int author, String title, String publisher, int publicationYear, int price, String type) {
-        super(type);
+    public Book(int author, String title, String publisher, int publicationYear, int price, int type) {
         this.author = author;
         this.title = title;
         this.publisher = publisher;
         this.publicationYear = publicationYear;
         this.price = price;
+        this.type = type;
     }
 
-    public int getISBN() { return ISBN; }
+    public Long getISBN() { return ISBN; }
     public int getAuthor() { return author; }
     public String getTitle() { return title; }
     public String getPublisher() { return publisher; }
     public int getPublicationYear() { return publicationYear; }
     public int getPrice() { return price; }
-    public String getType() { return type; }
+    public int getType() { return type; }
 }

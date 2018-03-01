@@ -1,11 +1,10 @@
 package controller;
 
-import dao.AuthorDAO;
-import dao.BookDAO;
-import dao.DbAuthorDAO;
-import dao.DbBookDAO;
+import dao.*;
 import model.Author;
 import model.Book;
+import model.Publisher;
+import services.ISBNgenerator;
 import view.menuView;
 
 import java.util.List;
@@ -56,22 +55,22 @@ public class mainController {
     }
 
     private Book createBook() {
-        return new Book(
-                pickAuthor().getId(),
-                view.askForTitle(),
-                view.askForPublisher(),
-                view.askForPublicationYear(),
-                view.askForPrice(),
-                view.askForType()
-        );
+        try {
+            return new Book(
+                    generateISBForNewBook(),
+                    pickAuthor().getId(),
+                    view.askForTitle(),
+                    pickPublisher().getPublisherId(),
+                    view.askForPublicationYear(),
+                    view.askForPrice(),
+                    view.askForType()
+            );
+        } catch (IllegalArgumentException e) { System.out.println("Operation has been failed!"); }
+
+        return null;
     }
 
-    private int chooseAuthorID(List<Author> authors) {
-        view.displayAuthors(authors);
-        return view.askForAuthor();
-    }
-
-    private Author pickAuthor() {
+    private Author pickAuthor() throws IllegalArgumentException {
         AuthorDAO authorDAO = new DbAuthorDAO();
         List<Author> authors = authorDAO.getAuthors();
 
@@ -81,6 +80,24 @@ public class mainController {
         for (Author person : authors) {
             if (person.getId() == author_id) return person;
         }
-        return null;
+        throw new IllegalArgumentException();
+    }
+
+    private Publisher pickPublisher() throws IllegalArgumentException {
+        PublisherDAO publisherDAO = new DbPublisherDAO();
+        List<Publisher> publishers = publisherDAO.getPublishers();
+
+        view.displayPublishers(publishers);
+        String publisher_id = view.askForPublisher();
+
+        for (Publisher element : publishers) {
+            if (element.getPublisherId().equals(publisher_id)) return element;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    private Long generateISBForNewBook() {
+        ISBNgenerator generator = new ISBNgenerator();
+        return generator.numberGenerator();
     }
 }

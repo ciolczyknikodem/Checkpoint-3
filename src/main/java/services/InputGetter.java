@@ -4,35 +4,50 @@ import java.util.Scanner;
 
 public class InputGetter {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
-    public static String getStringInput(String message) {
+    public String getStringInput(String message) {
         boolean incorrectInput = true;
-        String userInput = "";
+        String input = "";
 
         while (incorrectInput) {
             System.out.println(message);
-            userInput = scanner.nextLine();
+            input = scanner.nextLine();
 
-            if (userInput != null) incorrectInput = false;
+            if (input.length() > 0) incorrectInput = false;
         }
-        return userInput;
+        return input;
     }
 
-    public static Integer getIntegerInput(String message) {
+    public Integer getIntegerInput(String message) {
         boolean incorrectInput = true;
-        Integer userInput = null;
+        String userInput;
 
-        while(incorrectInput) {
+        while (incorrectInput) {
             System.out.println(message);
-            userInput = scanner.nextInt();
+            userInput = getUserInput();
+            Integer number = checkIfInputIsInt(userInput);
 
-            if(userInput != null) incorrectInput = false;
+            if (number != null) return number;
         }
-        return userInput;
+        return null;
     }
 
-    public static String promptUserToPressEnter() {
+    private String getUserInput() {
+        return scanner.nextLine();
+    }
+
+    private Integer checkIfInputIsInt(String input) {
+        try {
+            return Integer.parseInt(input);
+
+        } catch (IllegalArgumentException e ) {
+            System.out.println("You didn\'t type a number!");
+        }
+        return null;
+    }
+
+    public String promptUserToPressEnter() {
         System.out.println("\nPress enter to continue...");
         return scanner.nextLine();
     }

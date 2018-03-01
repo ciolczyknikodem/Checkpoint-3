@@ -110,6 +110,7 @@
     <index id="33" parent="8" name="sqlite_autoindex_Publishers_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>publisher_id</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="34" parent="8">

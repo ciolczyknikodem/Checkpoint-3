@@ -2,12 +2,13 @@ package dao.statements;
 
 import dao.entry.AuthorEntry;
 import dao.entry.BookEntry;
+import dao.entry.PublisherEntry;
 import model.Author;
 import model.Book;
 
-public class sqlQueries {
+public class SQLQueries {
 
-    public static String add(Book book) {
+    public static String add() {
         return "INSERT INTO " + BookEntry.Books.name() + " ( " +
                 BookEntry.ISBN.name() + ", " +
                 BookEntry.author.name() + ", " +
@@ -16,14 +17,7 @@ public class sqlQueries {
                 BookEntry.publication_year.name() + ", " +
                 BookEntry.price.name() + ", " +
                 BookEntry.type.name() + ") " +
-                "VALUES (" +
-                book.getISBN() + ", " +
-                book.getAuthor() + ", " +
-                book.getTitle() + ", " +
-                book.getPublisher() + ", " +
-                book.getPublicationYear() + ", " +
-                book.getPrice() + ", " +
-                book.getType() + ");";
+                "VALUES ( ?, ?, ?, ?, ?, ?, ?) ;";
     }
 
     public static String showBooks() {
@@ -33,4 +27,7 @@ public class sqlQueries {
     public static String getAuthors() {
         return "SELECT * " + " FROM " + AuthorEntry.Authors.name() + "; ";
     }
+    public static String getPublishers() { return "SELECT * " + " FROM " + PublisherEntry.Publishers.name() + "; "; }
 }
+
+

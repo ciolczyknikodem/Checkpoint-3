@@ -1,23 +1,25 @@
 package dao;
 
 import dao.entry.AuthorEntry;
-import dao.statements.sqlQueries;
+import dao.statements.SQLQueries;
 import model.Author;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DbAuthorDAO implements AuthorDAO {
-    private DBProcess process = new DBProcess();
+public class DbAuthorDAO extends DBConnection implements AuthorDAO {
 
     public List<Author> getAuthors() {
-        List<Author> authors = new ArrayList<Author>();
-        String statement = sqlQueries.getAuthors();
+        List<Author> authors = new ArrayList<>();
+        String statement = SQLQueries.getAuthors();
 
         try {
-            ResultSet result = process.executeDisplay(statement);
+            PreparedStatement preparedStatement = getPreparedStatement(statement);
+
+            ResultSet result = setUpStatement(preparedStatement);
 
             while (result.next()) {
                 authors.add(new Author(

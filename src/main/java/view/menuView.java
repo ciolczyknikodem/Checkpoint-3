@@ -1,17 +1,16 @@
 package view;
 
 import model.Author;
+import model.Publisher;
 import services.InputGetter;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static services.InputGetter.getIntegerInput;
-import static services.InputGetter.getStringInput;
 
 public class menuView extends View{
-    private Map<String, String> mainMenu = new HashMap<String, String>();
+    private Map<String, String> mainMenu = new HashMap<>();
+    private InputGetter inputGetter = new InputGetter();
 
     public void handleMainMenu() {
         clearScreen();
@@ -36,23 +35,23 @@ public class menuView extends View{
     }
 
     public int askForMenuOption() {
-        return InputGetter.getIntegerInput("What would you like to do?\n");
+        return inputGetter.getIntegerInput("What would you like to do?\n");
     }
 
     public void displayBooksInCollection(List<String> books) {
-        System.out.println("Books collection: ");
+        System.out.println("Books titles collection: ");
 
         for (String title : books) {
-            System.out.println("Title: " + title);
+            System.out.println(title);
         }
     }
 
-    public String askForAuthorName() { return InputGetter.getStringInput("Enter author name: "); }
-    public String askForTitle() { return InputGetter.getStringInput("Enter title: "); }
-    public String askForPublisher() { return InputGetter.getStringInput("Enter publisher: ");}
-    public int askForPublicationYear() { return InputGetter.getIntegerInput("Enter year of publication: "); }
-    public int askForPrice() { return InputGetter.getIntegerInput("Enter price: "); }
-    public String askForType() { return InputGetter.getStringInput("What type is this book?"); }
+    public String askForAuthorName() { return inputGetter.getStringInput("Enter author name: "); }
+    public String askForTitle() { return inputGetter.getStringInput("Enter title: "); }
+    public String askForPublisher() { return inputGetter.getStringInput("Enter publisher: ");}
+    public int askForPublicationYear() { return inputGetter.getIntegerInput("Enter year of publication: "); }
+    public int askForPrice() { return inputGetter.getIntegerInput("Enter price: "); }
+    public int askForType() { return inputGetter.getIntegerInput("What type is this book?\n1 = E-book, 2 = PrintBook"); }
 
 
     public void displayAuthors(List<Author> authors) {
@@ -61,5 +60,9 @@ public class menuView extends View{
         }
     }
 
-    public int askForAuthor() { return InputGetter.getIntegerInput("Enter id of author you want to choose: "); }
+    public int askForAuthor() { return inputGetter.getIntegerInput("Enter id of author you want to choose: "); }
+
+    public void displayPublishers(List<Publisher> publishers) {
+        for (Publisher element : publishers) { System.out.println(element.toString()); }
+    }
 }

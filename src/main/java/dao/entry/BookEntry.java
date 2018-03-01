@@ -1,12 +1,23 @@
 package dao.entry;
 
 public enum BookEntry {
-    Books,
-    ISBN,
-    author,
-    title,
-    publisher,
-    publication_year,
-    price,
-    type
+    Books("Books"),
+    ISBN("ISBN"),
+    author("author"),
+    title("title"),
+    publisher("publisher"),
+    publication_year("publication_year"),
+    price("price"),
+    type("type");
+
+    private String columnName;
+
+    BookEntry(String name) {
+        this.columnName = name;
+
+    }
+
+    public String getColumnName() {
+        return columnName;
+    }
 }
