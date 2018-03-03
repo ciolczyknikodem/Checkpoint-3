@@ -1,18 +1,9 @@
 package controller;
 
-import dao.*;
-import model.Author;
-import model.Book;
-import model.Publisher;
-import services.ISBNgenerator;
-import view.menuView;
-
-import java.sql.SQLDataException;
-import java.util.List;
+import view.MenuView;
 
 public class mainController {
-    private menuView view = new menuView();
-    private BookDAO booksDAO = new DbBookDAO();
+    private MenuView view = new MenuView();
     private BookController bookController = new BookController();
     private AuthorController authorController = new AuthorController();
 

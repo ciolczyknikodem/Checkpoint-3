@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class menuView extends View {
+public class MenuView extends View {
     private Map<String, String> mainMenu = new HashMap<>();
     private InputGetter inputGetter = new InputGetter();
 
@@ -28,7 +28,7 @@ public class menuView extends View {
         for (String element : mainMenu.keySet()) {
             System.out.println(element + mainMenu.get(element));
         }
-        System.out.println("0. Back to main menu.");
+        System.out.println("0. Exit.");
     }
 
     public int askForMenuOption() {

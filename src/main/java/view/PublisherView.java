@@ -10,7 +10,8 @@ public class PublisherView extends View {
 
 
     public void displayPublishers(List<Publisher> publishers) {
-        for (Publisher element : publishers) { System.out.println(element.toString()); }
+        Iterator<Object> iterator = new Iterator<>(publishers.toArray());
+        while(iterator.hasNext()) { System.out.println(iterator.next().toString()); }
     }
 
     public String askForPublisher() { return inputGetter.getStringInput("Enter publisher: "); }

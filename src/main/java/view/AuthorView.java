@@ -9,10 +9,12 @@ public class AuthorView extends View {
     private InputGetter inputGetter = new InputGetter();
 
     public void displayAuthors(List<Author> authors) {
-        for (Author person : authors) {
-            System.out.println(person.toString());
+        Iterator<Object> iterator = new Iterator<>(authors.toArray());
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 
-    public int askForAuthor() { return inputGetter.getIntegerInput("Enter id of author you want to choose: "); }
+    public int askForAuthorID() { return inputGetter.getIntegerInput("Enter id of author you want to choose: "); }
 }

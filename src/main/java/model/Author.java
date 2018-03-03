@@ -27,8 +27,7 @@ public class Author {
 
     public String toString() {
         return "\nID: " + author_id + "\n" +
-                "Name: " + name + "\n" +
-                "Surname: " + surname + "\n" +
+                "Name: " + name + " " + surname + "\n" +
                 "Birth year: " + birthYear + "\n" +
                 "City: " + city + "\n" +
                 "Country: " + country + "\n";

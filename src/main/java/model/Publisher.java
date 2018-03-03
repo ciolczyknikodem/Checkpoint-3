@@ -19,6 +19,6 @@ public class Publisher {
     public String getCountry() { return country; }
 
     public String toString() {
-        return "ID: " + publisherId + "\n" + name + ", " + city + ", " + country;
+        return "ID: " + publisherId + " || Info: " + name + ", " + city + ", " + country;
     }
 }

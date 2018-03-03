@@ -2,29 +2,41 @@ package view;
 
 import model.Book;
 import services.InputGetter;
-
+import java.util.Arrays;
 import java.util.List;
 
 public class BookView extends View {
     private InputGetter inputGetter = new InputGetter();
 
     public void displayBookTitles(List<String> books) {
+        Iterator<Object> iterator = new Iterator<>(books.toArray());
+
         System.out.println("Book titles in collection: ");
-        for (String title : books) { System.out.println(title); }
+        while(iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        inputGetter.promptUserToPressEnter();
     }
 
     public void displayBooksForDelete(List<Book> books) {
-        System.out.println("Which book do you want to delete?");
+        Iterator<Object> iterator = new Iterator<>(books.toArray());
 
-        for (Book element : books) {
-            System.out.println("ISBN number: " + element.getISBN() + ", title: " + element.getTitle());
+        System.out.println("Which book do you want to delete?");
+        while (iterator.hasNext()) {
+
+            Book book = (Book) iterator.next();
+            System.out.println("ISBN number: " + book.getISBN() + ", title: " + book.getTitle());
         }
     }
 
     public void displayBooksInfo(List<Book> books) {
-        for (Book element : books ) {
-            System.out.println(element.toString());
+        Iterator<Object> iterator = new Iterator<>(books.toArray());
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
+
         inputGetter.promptUserToPressEnter();
     }
 
@@ -37,5 +49,17 @@ public class BookView extends View {
 
     public int askForPublicationYear() { return inputGetter.getIntegerInput("Enter year of publication: "); }
     public int askForPrice() { return inputGetter.getIntegerInput("Enter price: "); }
-    public int askForType() { return inputGetter.getIntegerInput("What type is this book?\n1 = E-book, 2 = PrintBook"); }
+
+    public int askForType() {
+        String option[] = new String[] {"1", "2"};
+        String input = "";
+
+        boolean incorrectInput = true;
+        while (incorrectInput) {
+            input = inputGetter.getStringInput("What type is this book?\n1 = E-book, 2 = PrintBook");
+            incorrectInput = !Arrays.asList(option).contains(input);
+        }
+
+        return Integer.parseInt(input);
+    }
 }

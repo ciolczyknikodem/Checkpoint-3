@@ -26,7 +26,7 @@ public class BookController {
 
     public void addBook() {
         Book book = createBook();
-        bookDAO.add(book);
+        if (book != null) bookDAO.add(book);
     }
 
     private Book createBook() {
@@ -55,7 +55,7 @@ public class BookController {
         List<Author> authors = authorDAO.getAuthors();
 
         authorView.displayAuthors(authors);
-        int author_id = authorView.askForAuthor();
+        int author_id = authorView.askForAuthorID();
 
         for (Author person : authors) {
             if (person.getId() == author_id) return person;
