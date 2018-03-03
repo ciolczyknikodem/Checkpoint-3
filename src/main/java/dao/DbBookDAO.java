@@ -4,7 +4,6 @@ import dao.entry.BookEntry;
 import dao.statements.SQLQueries;
 import model.Book;
 
-import javax.swing.text.html.HTMLDocument;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -33,30 +32,70 @@ public class DbBookDAO extends DBConnection implements BookDAO {
     }
 
     public List<Book> getAllBooks() throws SQLDataException {
-        List<Book> books = new ArrayList<>();
         String statement = SQLQueries.getBooks();
 
         try {
             PreparedStatement preparedStatement = getPreparedStatement(statement);
-            ResultSet result = setUpStatement(preparedStatement);
-
-            while(result.next()) {
-                books.add(new Book(
-
-                        result.getLong(BookEntry.ISBN.name()),
-                        result.getInt(BookEntry.author.name()),
-                        result.getString(BookEntry.title.name()),
-                        result.getString(BookEntry.publisher.name()),
-                        result.getInt(BookEntry.publication_year.name()),
-                        result.getInt(BookEntry.price.name()),
-                        result.getInt(BookEntry.type.name())
-                ));
-            }
-            return books;
+            return executeResultSet(preparedStatement);
 
         } catch (SQLException e) { System.err.println(e.getClass().getName() + " --> " + e.getMessage()); }
 
         throw new SQLDataException();
+    }
+
+    public List<Book> getBookBy(String searchPhrase) {
+        String statement = SQLQueries.getBooksBySearchPhrase();
+
+        try {
+            PreparedStatement preparedStatement = getPreparedStatement(statement);
+            preparedStatement = setValuesForPreparedStatement(preparedStatement, searchPhrase);
+
+            return executeResultSet(preparedStatement);
+
+        } catch (SQLException e) { System.err.println(e.getClass().getName() + " --> " + e.getMessage()); }
+
+        return null;
+    }
+
+    private PreparedStatement setValuesForPreparedStatement(PreparedStatement statement, String searchPhrase) throws SQLException {
+        for (int i=1; i<5; ++i) {
+            statement.setString(i, "%" + searchPhrase + "%");
+        }
+        return statement;
+    }
+
+    private List<Book> executeResultSet(PreparedStatement statement) throws SQLException {
+        ResultSet resultSet = setUpStatement(statement);
+        List<Book> books = new ArrayList<>();
+
+        while(resultSet.next()) {
+            books.add(new Book(
+
+                    resultSet.getLong(BookEntry.ISBN.name()),
+                    resultSet.getInt(BookEntry.author.name()),
+                    resultSet.getString(BookEntry.title.name()),
+                    resultSet.getString(BookEntry.publisher.name()),
+                    resultSet.getInt(BookEntry.publication_year.name()),
+                    resultSet.getInt(BookEntry.price.name()),
+                    resultSet.getInt(BookEntry.type.name())
+                ));
+        }
+        return books;
+    }
+
+    public List<Book> getBookBy(int authorId) {
+        String statement = SQLQueries.getBooksByAuthor();
+
+        try {
+            PreparedStatement preparedStatement = getPreparedStatement(statement);
+            preparedStatement.setInt(1, authorId);
+            return executeResultSet(preparedStatement);
+
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + " --> " + e.getMessage());
+        }
+        return null;
     }
 
     public void add(Book book) {
