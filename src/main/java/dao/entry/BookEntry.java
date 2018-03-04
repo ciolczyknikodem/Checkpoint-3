@@ -8,7 +8,8 @@ public enum BookEntry {
     publisher("publisher"),
     publication_year("publication_year"),
     price("price"),
-    type("type");
+    type("type"),
+    booksAmount("booksAmount");
 
     private String columnName;
 

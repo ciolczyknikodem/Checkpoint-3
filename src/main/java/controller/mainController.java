@@ -36,6 +36,19 @@ public class mainController {
                     break;
 
                 case 6 :
+                    authorController.showAmountOfAuthorsBooks();
+                    break;
+
+                case 7 :
+                    bookController.getBooksFromLastTenYears();
+                    break;
+
+                case 8 :
+                    bookController.getMostExpensiveBook();
+                    break;
+
+                case 9 :
+                    authorController.getInfoAboutAuthors();
                     break;
 
                 case 0 :

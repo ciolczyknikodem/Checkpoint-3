@@ -105,4 +105,14 @@ public class BookController {
             System.err.println("Operation has been failed!");
         }
     }
+
+    public void getBooksFromLastTenYears() {
+        List<Book> books = bookDAO.getBookFromLastTenYears();
+        if (books != null) bookView.displayBooksFromLastTenYears(books);
+    }
+
+    public void getMostExpensiveBook() {
+        List<Book> book = bookDAO.getMostExpensiveBook();
+        if (book != null) bookView.displayBooksInfo(book);
+    }
 }

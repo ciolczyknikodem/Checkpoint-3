@@ -98,6 +98,33 @@ public class DbBookDAO extends DBConnection implements BookDAO {
         return null;
     }
 
+    public List<Book> getBookFromLastTenYears() {
+        String statement = SQLQueries.getBooksFromLastTenYears();
+
+        try {
+            PreparedStatement preparedStatement = getPreparedStatement(statement);
+            return executeResultSet(preparedStatement);
+
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + " --> " + e.getMessage());
+        }
+        return null;
+    }
+
+    public List<Book> getMostExpensiveBook() {
+        String statement = SQLQueries.getMostExpensiveBook();
+
+        try {
+            PreparedStatement preparedStatement = getPreparedStatement(statement);
+            return executeResultSet(preparedStatement);
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + " --> " + e.getMessage());
+        }
+        return null;
+    }
+
     public void add(Book book) {
         String statement = SQLQueries.add();
 

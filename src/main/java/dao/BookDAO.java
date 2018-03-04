@@ -10,6 +10,9 @@ public interface BookDAO {
     List<Book> getAllBooks() throws SQLDataException;
     List<Book> getBookBy(String searchPhrase);
     List<Book> getBookBy(int authorId);
+    List<Book> getBookFromLastTenYears();
+    List<Book> getMostExpensiveBook();
     void add(Book book);
+
     void deleteBookBy(Long ISBN);
 }

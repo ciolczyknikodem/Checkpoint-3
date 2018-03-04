@@ -40,6 +40,18 @@ public class BookView extends View {
         inputGetter.promptUserToPressEnter();
     }
 
+    public void displayBooksFromLastTenYears(List<Book> books) {
+        Iterator<Object> iterator = new Iterator<>(books.toArray());
+
+        while (iterator.hasNext()) {
+            Book book = (Book) iterator.next();
+            String line = String.format("%-32s %12s %-6d", book.getTitle(), "publication year: ", book.getPublicationYear());
+
+            System.out.println(line);
+        }
+        inputGetter.promptUserToPressEnter();
+    }
+
 
 
     public Long askForISBN() { return inputGetter.getLongInput("Enter ISBN number: "); }

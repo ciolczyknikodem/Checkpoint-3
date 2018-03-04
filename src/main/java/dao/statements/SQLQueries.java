@@ -9,21 +9,21 @@ import model.Book;
 public class SQLQueries {
 
     public static String add() {
-        return "INSERT INTO " + BookEntry.Books.name() + " ( " +
-                BookEntry.ISBN.name() + ", " +
-                BookEntry.author.name() + ", " +
-                BookEntry.title.name() + ", " +
-                BookEntry.publisher.name() + ", " +
-                BookEntry.publication_year.name() + ", " +
-                BookEntry.price.name() + ", " +
-                BookEntry.type.name() + ") " +
+        return "INSERT INTO " + BookEntry.Books + " ( " +
+                BookEntry.ISBN + ", " +
+                BookEntry.author + ", " +
+                BookEntry.title + ", " +
+                BookEntry.publisher + ", " +
+                BookEntry.publication_year + ", " +
+                BookEntry.price + ", " +
+                BookEntry.type + ") " +
                 "VALUES ( ?, ?, ?, ?, ?, ?, ?) ;";
     }
 
     public static String getBookTitles() {
-        return "SELECT " + BookEntry.title.name() +
-                " FROM " + BookEntry.Books.name() +
-                " ORDER BY " + BookEntry.title.name() + " ASC; ";
+        return "SELECT " + BookEntry.title +
+                " FROM " + BookEntry.Books +
+                " ORDER BY " + BookEntry.title + " ASC; ";
     }
 
     public static String deleteBook() {
@@ -31,38 +31,64 @@ public class SQLQueries {
                 " WHERE " + BookEntry.ISBN.name() + " = ?";
     }
 
-    public static String getAuthors() { return "SELECT *  FROM " + AuthorEntry.Authors.name() + "; "; }
-    public static String getPublishers() { return "SELECT *  FROM " + PublisherEntry.Publishers.name() + "; "; }
-    public static String getBooks() { return "SELECT * FROM " + BookEntry.Books.name() + "; "; }
+    public static String getAuthors() { return "SELECT *  FROM " + AuthorEntry.Authors + "; "; }
+    public static String getPublishers() { return "SELECT *  FROM " + PublisherEntry.Publishers + "; "; }
+    public static String getBooks() { return "SELECT * FROM " + BookEntry.Books + "; "; }
 
     public static String getBooksBySearchPhrase() {
         return "SELECT " +
-                BookEntry.ISBN.name() + ", " +
-                BookEntry.author.name() + ", " +
-                BookEntry.title.name() + ", " +
-                BookEntry.publisher.name() + ", " +
-                BookEntry.publication_year.name() + ", " +
-                BookEntry.price.name() + ", " +
-                BookEntry.type.name() +
-                " FROM " + BookEntry.Books.name() +
+                BookEntry.ISBN + ", " +
+                BookEntry.author + ", " +
+                BookEntry.title + ", " +
+                BookEntry.publisher + ", " +
+                BookEntry.publication_year + ", " +
+                BookEntry.price + ", " +
+                BookEntry.type +
+                " FROM " + BookEntry.Books +
                 " WHERE " +
-                BookEntry.ISBN.name() + " LIKE ? " + " OR " +
-                BookEntry.title.name() + " LIKE ? " + " OR " +
-                BookEntry.publisher.name() + " LIKE ? " + " OR " +
-                BookEntry.publication_year.name() + " LIKE ? " + " OR " +
-                BookEntry.price.name() + " LIKE ? " +
-                " ORDER BY " + BookEntry.title.name() + " ASC; ";
+                BookEntry.ISBN + " LIKE ? " + " OR " +
+                BookEntry.title + " LIKE ? " + " OR " +
+                BookEntry.publisher + " LIKE ? " + " OR " +
+                BookEntry.publication_year + " LIKE ? " + " OR " +
+                BookEntry.price + " LIKE ? " +
+                " ORDER BY " + BookEntry.title + " ASC; ";
     }
 
     public static String getBooksByAuthor() {
-        return "SELECT * FROM " + BookEntry.Books.name() + " JOIN " + AuthorEntry.Authors.name() +
+        return "SELECT * FROM " + BookEntry.Books + " JOIN " + AuthorEntry.Authors +
                 " ON " +
-                BookEntry.Books.name() + "." + BookEntry.author.name() + " = " +
-                AuthorEntry.Authors.name() + "." + AuthorEntry.author_id +
+                BookEntry.Books + "." + BookEntry.author + " = " +
+                AuthorEntry.Authors + "." + AuthorEntry.author_id +
                 " WHERE " + AuthorEntry.author_id + " = ?; ";
+    }
 
-        //                AuthorEntry.Authors.name() + "." + AuthorEntry.name.name() + ", " +
-        //                AuthorEntry.Authors.name() + "." + AuthorEntry.surname.name() +
+    public static String getAmountOfAuthorsBook() {
+        return "SELECT (" +
+                AuthorEntry.Authors + "." + AuthorEntry.name + " || \' \' || " + AuthorEntry.Authors + "." + AuthorEntry.surname +
+                ") AS " + AuthorEntry.fullname + ", " + " COUNT(*) AS " + BookEntry.booksAmount +
+
+                " FROM " +  BookEntry.Books + " LEFT JOIN " + AuthorEntry.Authors + " ON " +
+                AuthorEntry.Authors + "." + AuthorEntry.author_id + " = " +
+                BookEntry.Books + "." + BookEntry.author +
+
+                " GROUP BY " + AuthorEntry.fullname +
+                " HAVING COUNT(" + BookEntry.Books + "." + BookEntry.title + ") > 0;";
+    }
+
+    public static String getBooksFromLastTenYears() {
+        return "SELECT *, strftime('%Y', 'now')-10 as year FROM " + BookEntry.Books +
+                " WHERE " + BookEntry.publication_year + "> year;";
+    }
+
+    public static String getMostExpensiveBook() {
+        return "SELECT * FROM " + BookEntry.Books +
+                " WHERE " + BookEntry.price + " = " +
+                "(SELECT MAX(" + BookEntry.price + ") FROM " + BookEntry.Books + ");";
+    }
+
+    public static String getAuthorsInfo() {
+        return "SELECT (" + AuthorEntry.name + " ||\' \'|| " + AuthorEntry.surname + ") AS " + AuthorEntry.fullname +
+                ", " + AuthorEntry.brith_year + " FROM " + AuthorEntry.Authors + "; ";
 
     }
 }

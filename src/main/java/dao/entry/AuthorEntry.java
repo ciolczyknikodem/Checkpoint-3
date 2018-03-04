@@ -7,5 +7,6 @@ public enum AuthorEntry {
     surname,
     brith_year,
     city,
-    country
+    country,
+    fullname
 }

@@ -21,7 +21,10 @@ public class MenuView extends View {
         mainMenu.put("3. ", "Remove a book from collection.");
         mainMenu.put("4. ", "Search for a book.");
         mainMenu.put("5. ", "Show books by given author.");
-        mainMenu.put("6. ", "");
+        mainMenu.put("6. ", "Show amount of books by authors.");
+        mainMenu.put("7. ", "Show books from last 10 years.");
+        mainMenu.put("8. ", "Find most expensive book.");
+        mainMenu.put("9. ", "Show information about authors.");
     }
 
     private void displayMainMenu() {
