@@ -2,8 +2,8 @@ package model;
 
 public class BookType {
 
-    protected int typeID;
-    protected String type;
+    private int typeID;
+    private String type;
 
     public BookType(String type, int typeID) {
         this.typeID = typeID;

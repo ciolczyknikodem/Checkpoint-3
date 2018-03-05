@@ -71,8 +71,8 @@ public class InputGetter {
         return null;
     }
 
-    public String promptUserToPressEnter() {
+    public void promptUserToPressEnter() {
         System.out.println("\nPress enter to continue...");
-        return scanner.nextLine();
+        scanner.nextLine();
     }
 }
