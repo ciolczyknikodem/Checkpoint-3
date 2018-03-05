@@ -8,8 +8,9 @@ public class ISBNgenerator {
     private StringBuilder sb = new StringBuilder();
 
     public Long numberGenerator() {
+        int ISBN_LENGTH = 13;
 
-        for (int i=0; i < 13; ++i) {
+        for (int i=0; i < ISBN_LENGTH; ++i) {
             String randomNumber = String.valueOf(random.nextInt(9));
             sb.append(randomNumber);
         }

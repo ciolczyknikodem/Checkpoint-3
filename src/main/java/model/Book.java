@@ -10,7 +10,14 @@ public class Book {
     private int price;
     private int type;
 
-    public Book(int author, String title, String publisher, int publicationYear, int price, int type) {
+    public Book(
+            int author,
+            String title,
+            String publisher,
+            int publicationYear,
+            int price,
+            int type
+    ) {
         this.author = author;
         this.title = title;
         this.publisher = publisher;
@@ -19,7 +26,15 @@ public class Book {
         this.type = type;
     }
 
-    public Book(Long ISBN, int author, String title, String publisher, int publicationYear, int price, int typeID) {
+    public Book(
+            Long ISBN,
+            int author,
+            String title,
+            String publisher,
+            int publicationYear,
+            int price,
+            int typeID
+    ) {
         this.ISBN = ISBN;
         this.author = author;
         this.title = title;

@@ -1,9 +1,9 @@
 package controller;
 
-public class application {
+public class Application {
 
     public static void main(String[] args) {
-        mainController main = new mainController();
+        MainController main = new MainController();
         main.runMainMenu();
     }
 

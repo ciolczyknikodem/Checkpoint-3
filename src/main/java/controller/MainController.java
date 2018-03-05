@@ -2,7 +2,7 @@ package controller;
 
 import view.MenuView;
 
-public class mainController {
+public class MainController {
     private MenuView view = new MenuView();
     private BookController bookController = new BookController();
     private AuthorController authorController = new AuthorController();

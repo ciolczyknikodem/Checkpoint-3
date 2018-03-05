@@ -22,7 +22,7 @@ class DBConnection {
         }
     }
 
-    protected void closeConnection() {
+    void closeConnection() {
 
         if (connection != null) {
             try {
@@ -43,14 +43,13 @@ class DBConnection {
         return statement.executeQuery();
     }
 
-    boolean update(PreparedStatement statement) {
+    void update(PreparedStatement statement) {
 
         try {
             makeConnection();
             connection.setAutoCommit(false);
             statement.executeUpdate();
             connection.commit();
-            return true;
 
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + " --> " + e.getMessage());
@@ -58,7 +57,6 @@ class DBConnection {
         } finally {
             closeConnection();
         }
-        return false;
     }
 }
 
